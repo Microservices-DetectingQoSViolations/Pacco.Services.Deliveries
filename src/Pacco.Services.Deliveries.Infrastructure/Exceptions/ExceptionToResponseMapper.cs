@@ -1,8 +1,7 @@
+using Convey.Exceptions;
+using Convey.WebApi.Exceptions;
 using System;
 using System.Net;
-using Convey.WebApi.Exceptions;
-using Pacco.Services.Deliveries.Application.Exceptions;
-using Pacco.Services.Deliveries.Core.Exceptions;
 
 namespace Pacco.Services.Deliveries.Infrastructure.Exceptions
 {

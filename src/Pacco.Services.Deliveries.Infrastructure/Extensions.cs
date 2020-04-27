@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Convey;
 using Convey.CQRS.Commands;
 using Convey.CQRS.Events;
@@ -18,6 +14,7 @@ using Convey.MessageBrokers.RabbitMQ;
 using Convey.Metrics.AppMetrics;
 using Convey.Persistence.MongoDB;
 using Convey.Persistence.Redis;
+using Convey.QoS.Violation;
 using Convey.Tracing.Jaeger;
 using Convey.Tracing.Jaeger.RabbitMQ;
 using Convey.WebApi;
@@ -38,6 +35,10 @@ using Pacco.Services.Deliveries.Infrastructure.Logging;
 using Pacco.Services.Deliveries.Infrastructure.Mongo.Documents;
 using Pacco.Services.Deliveries.Infrastructure.Mongo.Repositories;
 using Pacco.Services.Deliveries.Infrastructure.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Pacco.Services.Deliveries.Infrastructure
 {
@@ -68,6 +69,7 @@ namespace Pacco.Services.Deliveries.Infrastructure
                 .AddRedis()
                 .AddMetrics()
                 .AddJaeger()
+                .AddQoSTrackingDecorators()
                 .AddHandlersLogging()
                 .AddMongoRepository<DeliveryDocument, Guid>("deliveries")
                 .AddWebApiSwaggerDocs();

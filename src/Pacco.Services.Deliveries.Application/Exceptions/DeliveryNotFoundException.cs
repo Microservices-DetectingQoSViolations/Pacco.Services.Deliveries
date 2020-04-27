@@ -1,3 +1,4 @@
+using Convey.Exceptions;
 using System;
 
 namespace Pacco.Services.Deliveries.Application.Exceptions
