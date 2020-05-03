@@ -69,7 +69,7 @@ namespace Pacco.Services.Deliveries.Infrastructure
                 .AddRedis()
                 .AddMetrics()
                 .AddJaeger()
-                .AddQoSTrackingDecorators()
+                .AddQoSViolation()
                 .AddHandlersLogging()
                 .AddMongoRepository<DeliveryDocument, Guid>("deliveries")
                 .AddWebApiSwaggerDocs();
@@ -81,7 +81,7 @@ namespace Pacco.Services.Deliveries.Infrastructure
                 .UseSwaggerDocs()
                 .UseJaeger()
                 .UseConvey()
-                .UseQoSCache()
+                .UseQoS()
                 .UsePublicContracts<ContractAttribute>()
                 .UseMetrics()
                 .UseRabbitMq()
