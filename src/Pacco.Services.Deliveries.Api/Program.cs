@@ -2,6 +2,7 @@
 using Convey;
 using Convey.Secrets.Vault;
 using Convey.Logging;
+using Convey.QoS.Violation.Runtime;
 using Convey.Types;
 using Convey.WebApi;
 using Convey.WebApi.CQRS;
@@ -36,7 +37,8 @@ namespace Pacco.Services.Deliveries.Api
                             afterDispatch: (cmd, ctx) => ctx.Response.Created($"deliveries/{cmd.DeliveryId}"))
                         .Post<FailDelivery>("deliveries/{deliveryId}/fail")
                         .Post<CompleteDelivery>("deliveries/{deliveryId}/complete")
-                        .Post<AddDeliveryRegistration>("deliveries/{deliveryId}/registrations")))
+                        .Post<AddDeliveryRegistration>("deliveries/{deliveryId}/registrations"))
+                    .UseRuntimeMetrics())
                 .UseLogging()
                 .UseVault()
                 .Build()
