@@ -6,7 +6,7 @@
 
     <ItemGroup>
         <PackageReference Include="Convey" Version="0.4.*" />
-        <PackageReference Include="Convey.QoS.Violation" Version="0.0.8" />
+        <PackageReference Include="Convey.QoS.Violation" Version="0.1.2" />
         <PackageReference Include="Convey.Secrets.Vault" Version="0.4.*" />
         <PackageReference Include="Convey.CQRS.Queries" Version="0.4.*" />
         <PackageReference Include="Convey.Discovery.Consul" Version="0.4.*" />
